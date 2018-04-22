@@ -1,11 +1,13 @@
 <#
   .SYNOPSIS
+  
     -本スクリプトを実行したディレクトリ以下に存在する
      全てのNmap結果xmlファイルから、Nmapの実行時間をパースして標準出力に出力します。
      
      注意：<CommonParameters> はサポートしていません。
    
   .DESCRIPTION
+  
     -本スクリプトを実行したディレクトリ以下に存在する
      全てのNmap結果xmlファイルから、Nmapの実行時間をパースして標準出力に出力します。
      
@@ -31,21 +33,26 @@
      IPv6には対応していません。
     
   .EXAMPLE
+  
     PS C:\Data> .\CalcTimeNmapXML.ps1
    
   .LINK
+  
     -なし。
    
   .PARAMETER Path
+  
     -なし。ファイル名を指定しての実行には対応していません。
     
   .INPUTS
+  
     -なし。パイプラインからの入力には対応していません。
     
   .OUTPUTS
+  
     -System.String
      標準出力へ出力します。
-
+     
 #>
 
 #helpスイッチ
