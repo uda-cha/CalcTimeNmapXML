@@ -62,7 +62,7 @@ if ( ${help} )
 #xmlファイルが最低一つはあるか確認
 if ( !( Test-Path *.xml ) )
   {
-  Write-Output "There is no *.xml file in (pwd)."
+  Write-Output "There is no *.xml file in $(Get-Location)."
   Read-Host "Prease press the Enter key..."
   exit
   }
