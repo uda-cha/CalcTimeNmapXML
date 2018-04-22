@@ -45,9 +45,7 @@
   .OUTPUTS
     -System.String
      標準出力へ出力します。
-    
-  .NOTES
-    20180422 r1
+
 #>
 
 #helpスイッチ
