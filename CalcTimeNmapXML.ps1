@@ -99,7 +99,7 @@ foreach ( $LINE in Get-ChildItem .\*.xml )
     }
 
   #スキャンしたIPアドレスを配列で格納
-  $IPLIST = ${MYXNAVI}.Select("/nmaprun/host/address[@addrtype = 'ipv4']/@addr") | %{$_.Value}
+  $IPLIST = [Array]${MYXNAVI}.Select("/nmaprun/host/address[@addrtype = 'ipv4']/@addr")
   #IPアドレスの個数を格納
   $IPCOUNT = [int]${IPLIST}.Count
   #IPアドレスの個数から診断名を決定する
@@ -113,7 +113,7 @@ foreach ( $LINE in Get-ChildItem .\*.xml )
     [string]$SCANNAME = "[multiple hosts]" + ${FILENAME}
     } else {
     #IPアドレスを診断名とする
-    [string]$SCANNAME = ${IPLIST}
+    [string]$SCANNAME = ${IPLIST}[0]
     }
   
   #スキャン一種類ずつ時間計算&出力
