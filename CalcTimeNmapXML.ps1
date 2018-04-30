@@ -90,7 +90,7 @@ foreach ( $LINE in Get-ChildItem .\*.xml )
     }
 
   #何種類のスキャンをやったか
-  $SCANNEDNUM = [int]( ${MYXNAVI}.Select("/nmaprun/taskend/@task") | %{ $_.Value} ).Count
+  $SCANNEDNUM = [int]( ${MYXNAVI}.Select("/nmaprun/taskend/@task").Value.Count )
   #0種類ならNmap実行時にvオプション付けてないと判断し次ファイルへ
   if ( ${SCANNEDNUM} -le 0)
     {
@@ -120,11 +120,11 @@ foreach ( $LINE in Get-ChildItem .\*.xml )
   for ( $i = 1; ${i} -le ${SCANNEDNUM}; ${i}++ )
     {
     #スキャンの種類名
-    $TASKNAME = [string]( ${MYXNAVI}.Select("/nmaprun/taskend[${i}]/@task") | %{$_.Value} )
+    $TASKNAME = [string]( ${MYXNAVI}.Select("/nmaprun/taskend[${i}]/@task").Value )
     #スキャン開始時刻
-    $TASKBEGIN = [int]( ${MYXNAVI}.Select("/nmaprun/taskbegin[${i}]/@time") | %{$_.Value} )
+    $TASKBEGIN = [int]( ${MYXNAVI}.Select("/nmaprun/taskbegin[${i}]/@time").Value )
     #スキャン終了時刻
-    $TASKEND = [int]( ${MYXNAVI}.Select("/nmaprun/taskend[${i}]/@time") | %{$_.Value} )
+    $TASKEND = [int]( ${MYXNAVI}.Select("/nmaprun/taskend[${i}]/@time").Value )
     #スキャンにかかった時間(秒)
     $TASKTIME = ${TASKEND} - ${TASKBEGIN}
     #結果出力
